@@ -1,5 +1,3 @@
 export default function () {
-    return <div>
-        OTAKU APP
-    </div>
+  return <div>OTAKU APP</div>;
 }
