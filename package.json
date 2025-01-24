@@ -1,19 +1,24 @@
 {
   "scripts": {
-    "dev": "tsx ./express-entry.ts",
+    "dev": "vite",
     "build": "vite build",
-    "preview": "cross-env NODE_ENV=production tsx ./express-entry.ts",
+    "preview": "vite preview",
     "lint": "eslint ."
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@reown/appkit": "^1.6.5",
+    "@reown/appkit-adapter-solana": "^1.6.5",
     "@reown/appkit-wallet": "^1.6.4",
+    "@reown/walletkit": "^1.1.2",
+    "@solana/wallet-adapter-wallets": "^0.19.32",
     "@universal-middleware/core": "^0.3.3",
     "@universal-middleware/express": "^0.3.3",
     "@vitejs/plugin-react": "^4.3.4",
-    "express": "^4.21.2",
+    "@walletconnect/core": "^2.17.5",
+    "@walletconnect/utils": "^2.17.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "telefunc": "^0.1.83",
     "vike-react": "^0.5.11"
   },
   "devDependencies": {
@@ -32,8 +37,7 @@
     "@types/react-dom": "^19.0.3",
     "tailwindcss": "^3.4.17",
     "postcss": "^8.4.49",
-    "autoprefixer": "^10.4.20",
-    "daisyui": "^4.12.23"
+    "autoprefixer": "^10.4.20"
   },
   "type": "module"
 }

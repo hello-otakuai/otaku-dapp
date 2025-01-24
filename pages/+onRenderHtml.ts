@@ -17,9 +17,8 @@ export default function (pageContext: PageContextServer) {
         )
     ) {
         const path = `${pageContext.config.subdomain![subdomain]}`;
-        console.error(`/${path}`)
         throw render(
-            `/${path}`,
+            `/${path}${pageContext.urlPathname}`,
         );
     }
 

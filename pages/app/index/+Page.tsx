@@ -1,43 +1,35 @@
-import React, { useState } from "react";
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
-import LogbookTab from "./components/LogbookTab";
-import HeatmapTab from "./components/HeatmapTab";
-import AppsTab from "./components/AppsTab";
-import SenseiTab from "./components/SenseiTab";
-import DevelopersTab from "./components/DevelopersTab";
+import { Fragment } from "react/jsx-runtime";
+import StatsOverview from "./components/StatsOverview";
 
-const TradeLogSummary = () => {
-  const [activeTab, setActiveTab] = useState("Logbook");
-
-  const renderContent = () => {
-    switch (activeTab) {
-      case "Logbook":
-        return <LogbookTab />;
-      case "Heatmap":
-        return <HeatmapTab />;
-      case "Apps":
-        return <AppsTab />;
-      case "Sensei":
-        return <SenseiTab />;
-      case "Developers":
-        return <DevelopersTab />;
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-[#1E1E1E] text-white font-['Gothic_A1']">
-      <div className="w-5/6 m-auto">
-        <Header />
-        <div className="flex">
-          <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-          <main className="w-4/5 p-8">{renderContent()}</main>
-        </div>
+export default function () {
+  return <Fragment>
+    <StatsOverview />
+    <div className="bg-[#1E1E1E] p-6 mt-8 rounded-[36px]">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg font-bold">Trades</h2>
+        <select className="bg-[#1E1E1E] p-2 rounded-md text-gray-400">
+          <option>Jan. 2025</option>
+        </select>
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-[#1E1E1E]">
+              <th className="text-left py-2 px-4">Token</th>
+              <th className="text-left py-2 px-4">Net Cap</th>
+              <th className="text-left py-2 px-4">Profit/Loss</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="py-2 px-4">BONK</td>
+              <td className="py-2 px-4">$500</td>
+              <td className="py-2 px-4 text-green-500">+40</td>
+            </tr>
+            {/* ... other table rows ... */}
+          </tbody>
+        </table>
       </div>
     </div>
-  );
-};
-
-export default TradeLogSummary;
+  </Fragment>
+}

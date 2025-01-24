@@ -1,0 +1,19 @@
+.color-secondary {
+    color: #ADADAD;
+}
+
+.bg-primary {
+    background-color:  #1E1E1E;
+}
+
+.hover-bg-primary:hover {
+    background-color:  #1E1E1E;
+}
+
+.bg-secondary {
+    background-color: #191919;
+}
+
+.hover-bg-secondary:hover {
+    background-color: #191919;
+}
