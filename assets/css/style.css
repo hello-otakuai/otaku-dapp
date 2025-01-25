@@ -21,6 +21,7 @@ body {
   font-family: sans-serif;
   overflow-x: hidden;
   background: #1E1E1E;
+  white-space: none;
 
 }
 
