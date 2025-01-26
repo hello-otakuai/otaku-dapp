@@ -19,12 +19,7 @@
 
   }
   
-  .week-dot.even {
-      background-color: rgb(150, 0, 0);
-  }
-  .week-dot.odd {
-      background-color: rgb(180, 0, 0);
-  }
+ 
   .empty-dot{
       width: 48px;
       height: 48px;
