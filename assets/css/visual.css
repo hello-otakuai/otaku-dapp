@@ -1,0 +1,37 @@
+/* styles.css */
+.weeks-grid-container {
+    display: flex;
+    flex-direction: column; /* Arrange rows vertically */
+    gap: 4px; /* Space between rows */
+    padding: 10px;
+  
+  }
+  
+  .week-row {
+    display: flex; /* Arrange dots horizontally in each row */
+    gap: 4px; /* Space between dots */
+  }
+  
+  .week-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+
+  }
+  
+ 
+  .empty-dot{
+      width: 48px;
+      height: 48px;
+  }
+
+  /* 1-#F0272D0D 
+2-#F0272D40 
+3-#F0272D80
+4-#F0272DBF
+5-#F0272D
+
+
+heat 
+ */
+
