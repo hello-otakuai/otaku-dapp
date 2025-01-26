@@ -38,7 +38,7 @@ export default function HeatmapComponent() {
       
 
       
-    <div className="bg-[#1E1E1E] w-100 rounded-2xl p-10 h-auto flex flex-col gap-4 text-white">
+    <div className="bg-[#1E1E1E] justify-between w-96 rounded-2xl p-10 h-auto flex flex-col gap-4 text-white">
       {/* Header Section */}
       <div className="flex items-center gap-2 pb-32">
         <span>
@@ -59,39 +59,42 @@ export default function HeatmapComponent() {
 
       {/* Profit and Volume Details */}
       <div className=" text-[#ADADAD] flex flex-row gap-x-1">
-        <div className="p-2 text-sm flex flex-col">
+        <div className="text-sm flex flex-col w-3/6">
           <h1 className="text-white font-semibold">GROSS PROFIT</h1> $2,045.52
           <span className="text-green-500">(+3,811.13%)</span>
         </div>
-        <div className="text-sm flex flex-col">
+        <div className="text-sm flex flex-col w-2/6">
           <div className="text-white font-semibold">NET CAP</div>
           <span>$52.3</span>
         </div>
-        <div className="text-sm flex flex-col">
+        <div className="text-sm flex flex-col w-2/6">
           <span className="text-white font-semibold">TRADE VOL</span>
           <span>$2,362.65</span>
         </div>
       </div>
 
      
-      <div className="space-y-2 text-[#ADADAD] flex flex-row">
+      <div className="space-y-2 text-[#ADADAD] flex flex-col gap-x-1">
         <div className="text-sm flex flex-row">
           <h1 className="text-white font-semibold">STAR TOKEN</h1> 
           <span>$BONK</span>
         </div>
-        <div className="text-sm flex flex-col">
-          <span className="text-white font-semibold">PROFIT</span>
+      <div className="flex flex-row">
+      <div className="text-sm flex flex-col ">
+          <h1 className="text-white font-semibold">PROFIT</h1>
           <span>$1,996.43</span>
           <span className="text-green-500">(+16,536.92%)</span>
         </div>
-        <p className="text-sm flex flex-col">
+        <p className="text-sm flex flex-col w-2/6">
           <span className="text-white font-semibold">INITIAL CAP</span> 
           <span>$12</span>
         </p>
-        <p className="text-xs flex flex-col">
+        <p className="text-xs flex flex-col w-2/6">
           <span className="text-white font-semibold">PROFIT %</span>
           <span>99.56%</span>
         </p>
+
+      </div>
       </div>
     </div>
 
