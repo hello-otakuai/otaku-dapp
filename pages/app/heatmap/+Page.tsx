@@ -1,5 +1,6 @@
 import React from "react";
 import WeeksGrid from './visual';
+import Data from './data';
 export default function HeatmapComponent() {
   return (
     <div className="flex flex-col  text-white p-4">
@@ -45,56 +46,11 @@ export default function HeatmapComponent() {
           </span>
         <span className="text-xl font-bold">BestDay</span>
         </div>
+        <Data/>
+        </div>
+        </div>
+        </div>
 
-     
-      <div className="text-[#ADADAD]">
-        <p className="text-sm">
-          <span className="text-white font-semibold">DATE</span>: 20-TUE/FEB/2024
-        </p>
-      </div>
-
-    
-      <div className=" text-[#ADADAD] flex flex-row gap-x-1">
-        <div className="text-sm flex flex-col w-3/6">
-          <h1 className="text-white font-semibold">GROSS PROFIT</h1> $2,045.52
-          <span className="text-green-500">(+3,811.13%)</span>
-        </div>
-        <div className="text-sm flex flex-col w-2/6">
-          <div className="text-white font-semibold">NET CAP</div>
-          <span>$52.3</span>
-        </div>
-        <div className="text-sm flex flex-col w-2/6">
-          <span className="text-white font-semibold">TRADE VOL</span>
-          <span>$2,362.65</span>
-        </div>
-      </div>
-
-     
-      <div className="space-y-2 text-[#ADADAD] flex flex-col gap-x-1">
-        <div className="text-sm flex flex-row gap-3">
-          <h1 className="text-white font-semibold">STAR TOKEN</h1> 
-          <span>$BONK</span>
-        </div>
-      <div className="flex flex-row">
-        <div className="text-sm flex flex-col ">
-          <h1 className="text-white font-semibold">PROFIT</h1>
-          <span>$1,996.43</span>
-          <span className="text-green-500">(+16,536.92%)</span>
-          </div>
-
-        <p className="text-sm flex flex-col w-2/6">
-          <span className="text-white font-semibold">INITIAL CAP</span> 
-          <span>$12</span>
-        </p>
-
-        <p className="text-xs flex flex-col w-2/6">
-          <span className="text-white font-semibold">PROFIT %</span>
-          <span>99.56%</span>
-        </p>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+  
   );
 }
