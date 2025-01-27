@@ -4,6 +4,7 @@ declare global {
         interface PageContext {
             config: {
                 subdomain?: Record<string, Any>;
+                credentials: Record<string, Any>;
             };
         }
     }

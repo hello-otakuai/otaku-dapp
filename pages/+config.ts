@@ -12,5 +12,11 @@ export default {
         client: true,
       },
     },
+    credentials: {
+      env: {
+        server: true,
+        client: true,
+      },
+    },
   },
 } satisfies Config;
