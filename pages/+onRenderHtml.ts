@@ -16,7 +16,6 @@ export default function (pageContext: PageContextServer) {
     )
   ) {
     const path = `${pageContext.config.subdomain![subdomain]}`;
-    console.log(`/${path}${pageContext.urlPathname}`, "Called here");
     throw render(`/${path}${pageContext.urlPathname}`);
   }
 
