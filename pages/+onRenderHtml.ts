@@ -1,5 +1,5 @@
 import { onRenderHtml } from "vike-react/__internal/integration/onRenderHtml";
-import { render, redirect } from "vike/abort";
+import { redirect, render } from "vike/abort";
 import { PageContextServer } from "vike/types";
 import "@src/extensions/impl";
 
@@ -24,7 +24,9 @@ export default function (pageContext: PageContextServer) {
     .satifies((el) => pageContext.urlParsed.pathname.includes(el));
   if (part && !subdomain) {
     throw redirect(
-      `${pageContext.urlParsed.protocol ?? "http://"}${part.slice(1)}.${(pageContext.headersOriginal! as string[])["host"]}/${pageContext.urlParsed.pathname.replace(part, "")}`,
+      `${pageContext.urlParsed.protocol ?? "http://"}${part.slice(1)}.${
+        (pageContext.headersOriginal! as Record<string, string>)["host"]
+      }/${pageContext.urlParsed.pathname.replace(part, "")}`,
     );
   }
 
