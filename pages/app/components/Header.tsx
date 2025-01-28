@@ -29,8 +29,19 @@ export const ConnectWalletButton = () => {
             && el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot
             && el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot.children.length > 0
             && el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot.children[0]) {
+                const stylesheet = document.createElement('style');
+                stylesheet.innerHTML = `.r-p {
+                padding: 20px 30px !important;
+                }
+                @media(min-width: 769px) {
+                    .r-p {
+                        padding: 10px 30px;
+                    }
+                }
+                `;
+                (el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot).appendChild(stylesheet);
             (el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot.children[0] as HTMLButtonElement).style.background = "#191919";
-            (el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot.children[0] as HTMLButtonElement).style.padding = "20px 30px";
+            (el.shadowRoot.children[0].shadowRoot.children[0].shadowRoot.children[0] as HTMLButtonElement).classList.add("r-p");
         }
     }
 
