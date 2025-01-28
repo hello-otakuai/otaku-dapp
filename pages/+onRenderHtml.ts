@@ -19,16 +19,16 @@ export default function (pageContext: PageContextServer) {
     throw render(`/${path}${pageContext.urlPathname}`);
   }
 
-  const part = Object.keys(pageContext.config.subdomain ?? {})
-    .map((subdomain) => `/${subdomain}`)
-    .satifies((el) => pageContext.urlParsed.pathname.includes(el));
-  if (part && !subdomain) {
-    throw redirect(
-      `${pageContext.urlParsed.protocol ?? "http://"}${part.slice(1)}.${
-        (pageContext.headersOriginal! as Record<string, string>)["host"]
-      }/${pageContext.urlParsed.pathname.replace(part, "")}`,
-    );
-  }
+  // const part = Object.keys(pageContext.config.subdomain ?? {})
+  //   .map((subdomain) => `/${subdomain}`)
+  //   .satifies((el) => pageContext.urlParsed.pathname.includes(el));
+  // if (part && !subdomain) {
+  //   throw redirect(
+  //     `${pageContext.urlParsed.protocol ?? "http://"}${part.slice(1)}.${
+  //       (pageContext.headersOriginal! as Record<string, string>)["host"]
+  //     }/${pageContext.urlParsed.pathname.replace(part, "")}`,
+  //   );
+  // }
 
   return onRenderHtml(pageContext);
 }

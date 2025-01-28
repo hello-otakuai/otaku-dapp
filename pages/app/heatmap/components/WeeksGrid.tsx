@@ -1,45 +1,35 @@
-import React from "react";
-import "@assets/css/visual.css";
+import React, { useEffect, useRef, useState } from "react";
 
-const WeeksGrid = () => {
-  const numWeeks = 52;
-  const weeks = [];
-  const redVariants = [
-    "#F0272D0D", // 1 heat map grade/level
-    "#F0272D40", // 2
-    "#F0272D80", // 3
-    "#F0272DBF", // 4
-    "#F0272D", // 5
-  ];
+const NUMBER_OF_WEEKS = 52;
+const HEAT_LEVEL = [
+  "#F0272D0D", // 1 
+  "#F0272D40",
+  "#F0272D80",
+  "#F0272DBF",
+  "#F0272D",
+];
 
-  const cols = Math.ceil(Math.sqrt(numWeeks));
-  const rows = Math.ceil(numWeeks / cols);
+interface Heat { }
 
-  for (let i = 0; i < rows; i++) {
-    const row = [];
-    for (let j = 0; j < cols; j++) {
-      const weekIndex = i * cols + j;
-      if (weekIndex < numWeeks) {
-        const variantIndex = weekIndex % 5;
-        row.push(
-          <div
-            key={weekIndex}
-            className="week-dot"
-            style={{ backgroundColor: redVariants[variantIndex] }}
-          ></div>,
-        );
-      } else {
-        row.push(<div key={`empty-${i}-${j}`} className="empty-dot"></div>);
-      }
-    }
-    weeks.push(
-      <div key={i} className="week-row">
-        {row}
-      </div>,
-    );
-  }
+const WeeksGrid = ({ weekHeat: heat = [] }: { weekHeat?: Heat[] }) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const [size, setSize] = useState<number | null>(null)
 
-  return <div className="weeks-grid-container">{weeks}</div>;
+  useEffect(() => {
+    if (!ref.current) return;
+    const width = ref.current.clientWidth;
+    let hw = Math.ceil(width / 10) - 5;
+    console.log(hw, width)
+    setSize(hw)
+  }, []);
+
+  return <div className="col-span-2 flex flex-wrap gap-2 px-auto " ref={ref}>
+    {size && Array.from(Array(NUMBER_OF_WEEKS).keys()).map(wk => <div key={wk} className="rounded-lg" style={{
+      width: size,
+      height: size,
+      backgroundColor: HEAT_LEVEL[wk % 5], // HEAT_LEVEL[weakHeat[wk]] 
+    }} />)}
+  </div>;
 };
 
 export default WeeksGrid;

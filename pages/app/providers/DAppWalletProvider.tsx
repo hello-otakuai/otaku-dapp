@@ -31,9 +31,14 @@ export default function DAppWalletProvider({ children }: { children: ReactNode }
         metadata: metadata,
         projectId,
         features: {
+            email: true,
+            socials: ['google', 'x', 'github', 'apple',],
+            emailShowWallets: true,
             analytics: true
-        }
+        },
+        allWallets: 'SHOW',
     });
+
     return <DAPP_WALLET_PROVIDER_CONTEXT.Provider value={kit}>
         {children}
     </DAPP_WALLET_PROVIDER_CONTEXT.Provider>

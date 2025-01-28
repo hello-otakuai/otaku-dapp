@@ -6,12 +6,12 @@ import { navigate } from 'vike/client/router';
 export default function ({ children }: { children: ReactNode }) {
     return (
         <DAppWalletProvider>
-            <div className="min-h-screen w-screen bg-primary text-white font-['Gothic_A1'] p-4">
-                <div className="md:max-w-screen-2xl mx-auto">
+            <div className="bg-primary text-white font-['Gothic_A1']">
+                <div className="md:max-w-screen-2xl mx-auto overflow-y-scroll h-screen">
                     <Header />
-                    <div className="p-4 md:flex gap-8 hidden">
+                    <div className="p-4 flex gap-8">
                         {/* Menu */}
-                        <aside>
+                        <aside className="hidden md:block">
                             <nav className="w-fit max-w-40 bg-secondary p-3 flex flex-col gap-2 justify-center rounded-3xl pb-20">
                                 <LogBookBtn />
                                 <HeatMapBtn />
