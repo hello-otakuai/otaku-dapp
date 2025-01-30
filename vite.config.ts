@@ -5,11 +5,11 @@ import { fileURLToPath, URL } from "url";
 
 export default defineConfig({
   plugins: [vike({}), react({})],
-  server: {
-    proxy: {
-      "/.well-known/walletconnect.txt": "/well-known/walletconnect.txt",
-    },
-  },
+  // server: {
+  //   proxy: {
+  //     "/.well-known/walletconnect.txt": "/well-known/walletconnect.txt",
+  //   },
+  // },
   resolve: {
     alias: [
       {
