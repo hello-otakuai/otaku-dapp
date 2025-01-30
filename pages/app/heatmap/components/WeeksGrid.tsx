@@ -13,22 +13,13 @@ interface Heat { }
 
 const WeeksGrid = ({ weekHeat: heat = [] }: { weekHeat?: Heat[] }) => {
   const ref = useRef<HTMLDivElement>(null)
-  const [size, setSize] = useState<number | null>(null)
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const width = ref.current.clientWidth;
-    let hw = Math.ceil(width / 10) - 5;
-    console.log(hw, width)
-    setSize(hw)
-  }, []);
 
   return <div className="col-span-2 flex flex-wrap gap-2 px-auto " ref={ref}>
-    {size && Array.from(Array(NUMBER_OF_WEEKS).keys()).map(wk => <div key={wk} className="rounded-lg" style={{
-      width: size,
-      height: size,
-      backgroundColor: HEAT_LEVEL[wk % 5], // HEAT_LEVEL[weakHeat[wk]] 
-    }} />)}
+    {Array.from(Array(NUMBER_OF_WEEKS).keys()).map(wk => <div key={wk} className="rounded-lg size-8 md:size-10 lg:size-12 xl:size-14"
+      onClick={() => console.log("HH")}
+      style={{
+        backgroundColor: HEAT_LEVEL[wk % 5], // HEAT_LEVEL[weakHeat[wk]] 
+      }} />)}
   </div>;
 };
 

@@ -1,5 +1,4 @@
-
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 const CircleChart = ({ percentage = 58, }) => {
   const [percent, setPercent] = useState(0);
   useEffect(() => {
@@ -27,8 +26,8 @@ const CircleChart = ({ percentage = 58, }) => {
   };
 
   return (
-    <div className="flex items-center justify-center relative">
-      <svg viewBox="0 0 36 36" className="w-full h-full scale-75 md:scale-100">
+    <div className="flex items-center justify-center relative size-44">
+      <svg viewBox="0 0 36 36">
         <circle
           className="text-gray-500"
           strokeWidth="1"
@@ -57,11 +56,11 @@ const CircleChart = ({ percentage = 58, }) => {
 };
 
 const WinLossRatio = ({ wins, loss }: { wins: number, loss: number }) => {
-  const winPercent = (wins / (wins + loss)) * 100;
-  const lossPercent = (loss / (wins + loss)) * 100;
-  return (
-    <div className="bg-secondary p-6 md:p-8 rounded-3xl grid md:grid-cols-2 place-items-center gap-4 md:gap-8">
-      <div className="flex flex-col gap-5">
+  const winPercent = ((wins / (wins + loss)) * 100).toFixed(2);
+  const lossPercent = ((loss / (wins + loss)) * 100).toFixed(2);
+  return (<Fragment>
+    <div className="bg-secondary p-6 rounded-3xl grid md:grid-cols-2 gap-4 md:gap-8">
+      <div className="flex flex-col gap-5  h-fit">
         <p className="text-lg md:text-xl">
           {"Win/Loss ratio"}
         </p>
@@ -76,7 +75,7 @@ const WinLossRatio = ({ wins, loss }: { wins: number, loss: number }) => {
                 WINS ${Intl.NumberFormat().format(wins)}
               </span>
               <span className="text-zinc-500">
-                ≅ ${winPercent}
+                ≅ {winPercent}
               </span>
             </p>
           </div>
@@ -87,16 +86,29 @@ const WinLossRatio = ({ wins, loss }: { wins: number, loss: number }) => {
                 LOSS ${Intl.NumberFormat().format(loss)}
               </span>
               <span className="text-zinc-500">
-                ≅ ${lossPercent}
+                ≅ {lossPercent}
               </span>
             </p>
           </div>
         </div>
       </div>
-      <CircleChart />
+      <CircleChart percentage={Math.floor((wins / (wins + loss)) * 100)} />
     </div>
+  </Fragment>
   );
 };
+
+const Overview = ({ title, pNL, value }: { title: string, value: number, pNL: string }) => <div className="space-y-1">
+  <div className="text-zinc-400 uppercase">
+    {title}
+  </div>
+  <div>
+    {`$${Intl.NumberFormat().format(value)}`}
+  </div>
+  <div className="text-zinc-400">
+    {pNL}
+  </div>
+</div>
 
 const TradeOverview = () => {
   return <div className="bg-secondary p-6 md:p-8 rounded-3xl flex flex-col justify-between">
@@ -109,14 +121,16 @@ const TradeOverview = () => {
       </p>
     </div>
     <div className="flex gap-4">
-
+      <Overview title="Trade vol" pNL="+2.8%" value={10369} />
+      <Overview title="Net cap" pNL="+2.8%" value={10369} />
+      <Overview title="Gross profit" pNL="+2.8%" value={10369} />
     </div>
   </div>
 }
 
 const StatsOverview = () => {
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className="grid lg:grid-cols-2 gap-4 w-full">
       <WinLossRatio wins={3561} loss={1821} />
       <TradeOverview />
     </div>

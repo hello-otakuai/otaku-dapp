@@ -1,4 +1,31 @@
+import { useState } from "react"
+interface BestDay {
+    date: Date,
+    profit: number
+    cap: number
+    vol: number
+    token: {
+        name: string
+        cap: number
+        profit: number
+    }
+}
+
 export default function () {
+    const [bestDay, setBestDay] = useState<BestDay>({
+        date: new Date(),
+        profit: -300,
+        cap: 1000,
+        vol: 1879,
+        token: {
+            name: "Bonk",
+            cap: 400,
+            profit: 350
+        }
+
+    })
+    const grossProfitnLoss = bestDay.profit / bestDay.cap;
+    console.log(grossProfitnLoss)
     return <div className="bg-[#1E1E1E] rounded-2xl p-8 h-auto text-white flex flex-col justify-between">
         <div className="flex items-center gap-2">
             <span>
@@ -17,28 +44,36 @@ export default function () {
                     />
                 </svg>
             </span>
-            <span className="text-xl font-bold">BestDay</span>
+            <span className="text-xl font-bold">{"BestDay"}</span>
         </div>
 
         <div className="flex flex-col gap-3">
             <div className="text-[#ADADAD]">
-                <p className="text-sm">
+                <p className="text-sm space-x-3">
                     <span className="text-white font-semibold">DATE</span>:
-                    20-TUE/FEB/2024
+                    <span className="uppercase">
+                        {`${bestDay.date.getDate()}-${bestDay.date.getDayString()} / ${bestDay.date.getMonthString()} / ${bestDay.date.getFullYear()}`}
+                    </span>
                 </p>
             </div>
 
-            <div className=" text-[#ADADAD] flex flex-row gap-x-1">
-                <div className="text-sm flex flex-col w-3/6">
-                    <h1 className="text-white font-semibold">GROSS PROFIT</h1>{" "}
-                    $2,045.52
-                    <span className="text-green-500">(+3,811.13%)</span>
+            <div className=" text-[#ADADAD] grid grid-cols-3 gap-4">
+                <div className="text-sm flex flex-col gap-1">
+                    <div className="text-white font-semibold whitespace-nowrap uppercase">
+                        {`Gross ${bestDay.profit >= 0 ? 'Profit' : 'loss'}`}
+                    </div>
+                    <div>
+                        {`$${Intl.NumberFormat().format(Math.abs(bestDay.profit))}`}
+                    </div>
+                    <div className="text-green-500">
+                        {`(${bestDay.profit >= 0 ? '+' : '-'}${Intl.NumberFormat().format(Math.abs(bestDay.profit) / bestDay.cap)})`}
+                    </div>
                 </div>
-                <div className="text-sm flex flex-col w-2/6">
+                <div className="text-sm flex flex-col gap-1">
                     <div className="text-white font-semibold">NET CAP</div>
                     <span>$52.3</span>
                 </div>
-                <div className="text-sm flex flex-col w-2/6">
+                <div className="text-sm flex flex-col gap-1">
                     <span className="text-white font-semibold">TRADE VOL</span>
                     <span>$2,362.65</span>
                 </div>

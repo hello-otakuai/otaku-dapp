@@ -5,6 +5,8 @@ export default {
   title: "Otaku Journal",
   description: "Track your crypto journey",
   extends: vikeReact,
+  clientRouting: true,
+  ssr: false,
   meta: {
     subdomain: {
       env: {

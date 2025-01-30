@@ -29,13 +29,13 @@ export default function HeatmapComponent() {
               />
             </svg>
 
-            <p className="text-center text-sm text-white font-semibold">
+            <p className="text-sm text-white font-semibold">
               see your trading frequency for the past 52 weeks (1 year)
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid xl:grid-cols-3 gap-8">
           <WeeksGrid />
           <BestDay />
         </div>
