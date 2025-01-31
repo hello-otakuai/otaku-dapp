@@ -80,7 +80,7 @@ export default function AddTrade({ text = "Manual Entry" }: { text?: string }) {
                             </div>
                         </div>
                         <button
-                            className="bg-primary w-full hover:bg-zinc-400 py-3 rounded-2xl"
+                            className="bg-primary w-full hover:bg-zinc-700 py-3 rounded-2xl transition-all duration-300"
                             onClick={() => {
                                 closeFn();
                                 localStorage.setItem(FIRST_ENTRY_KEY, "1");
@@ -187,7 +187,7 @@ const AddEntryForm = () => {
                 name="comment"
             />
             <button
-                className="bg-primary w-full hover:bg-zinc-400 py-3 rounded-2xl my-4"
+                className="bg-primary w-full hover:bg-zinc-700 py-3 rounded-2xl my-4  transition-all duration-300"
                 onClick={onAddTrade}
             >
                 {`Save`}
