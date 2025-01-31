@@ -18,7 +18,7 @@ const WeeksGrid = ({ weekHeat: heat = [] }: { weekHeat?: Heat[] }) => {
     {Array.from(Array(NUMBER_OF_WEEKS).keys()).map(wk => <div key={wk} className="rounded-lg size-8 md:size-10 lg:size-12 xl:size-14"
       onClick={() => console.log("HH")}
       style={{
-        backgroundColor: HEAT_LEVEL[wk % 5], // HEAT_LEVEL[weakHeat[wk]] 
+        backgroundColor: HEAT_LEVEL[wk < 4 ? wk % 5 : 0], // HEAT_LEVEL[weakHeat[wk]] 
       }} />)}
   </div>;
 };

@@ -10,6 +10,9 @@ export default defineConfig({
   //     "/.well-known/walletconnect.txt": "/well-known/walletconnect.txt",
   //   },
   // },
+  preview: {
+    
+  },
   resolve: {
     alias: [
       {

@@ -147,16 +147,19 @@ export default function AppList() {
                         <p className="text-sm text-zinc-300">
                             Recommended
                         </p>
-                        {RECOMMENDED.filter((id) =>
-                            !registered.map((v) => v.mint).includes(
-                                AVAILABLE_APP_LIST[id].mint,
-                            )
-                        ).map((id) => (
-                            <AppButton
-                                {...AVAILABLE_APP_LIST[id]}
-                                id={id}
-                            />
-                        ))}
+                        <div className="py-4 grid lg:grid-cols-2 gap-4 lg:gap-8">
+                            {RECOMMENDED.filter((id) =>
+                                !registered.map((v) => v.mint).includes(
+                                    AVAILABLE_APP_LIST[id].mint,
+                                )
+                            ).map((id) => (
+                                <AppButton
+                                    key={id}
+                                    {...AVAILABLE_APP_LIST[id]}
+                                    id={id}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </>
             )}
